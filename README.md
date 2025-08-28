@@ -1,8 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Todo App UI
 
-## Getting Started
+A modern, responsive todo application built with Next.js 15, TypeScript, and Tailwind CSS. This frontend application provides a clean interface for managing tasks and requires a backend API server to function properly.
 
-First, run the development server:
+## Features
+
+- ✅ Create, read, update, and delete tasks
+- ✅ Mark tasks as complete/incomplete
+- ✅ Responsive design with mobile support
+- ✅ TypeScript for type safety
+- ✅ Server actions for data mutations
+- ✅ Tailwind CSS for styling
+- ✅ Next.js 15 with Turbopack for fast development
+
+## Prerequisites
+
+Before setting up this project, ensure you have:
+
+- **Node.js** (version 18 or higher)
+- **npm**, **yarn**, **pnpm**, or **bun** package manager
+- **Backend API server** - Set up the [Todo App Server](https://github.com/rrhodeswebdev/todo-app-server) first
+
+## Setup Instructions
+
+### 1. Clone the Repository
+
+```bash
+git clone <your-repo-url>
+cd todo-app-ui
+```
+
+### 2. Install Dependencies
+
+Choose your preferred package manager:
+
+```bash
+# Using npm
+npm install
+
+# Using yarn
+yarn install
+
+# Using pnpm
+pnpm install
+
+# Using bun
+bun install
+```
+
+### 3. Environment Configuration
+
+1. Copy the example environment file:
+   ```bash
+   cp .env.example .env.local
+   ```
+
+2. Edit `.env.local` and configure the required environment variable:
+   ```bash
+   NEXT_PUBLIC_API_URL=http://localhost:8080
+   ```
+   
+   Replace `http://localhost:8080` with your actual backend API server URL.
+
+### 4. Run the Development Server
+
+Start the development server with Turbopack for faster builds:
 
 ```bash
 npm run dev
@@ -14,23 +75,31 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── actions/          # Server actions for API calls
+│   └── tasks.ts      # Task-related server actions
+├── app/              # Next.js app router pages
+│   ├── edit/[id]/    # Task editing page
+│   ├── new/          # New task creation page
+│   └── page.tsx      # Home page
+├── components/       # Reusable UI components
+│   ├── button.tsx
+│   ├── header.tsx
+│   ├── task-form.tsx
+│   ├── task-item.tsx
+│   └── task-list.tsx
+└── types/            # TypeScript type definitions
+    └── tasks.ts
+```
 
-## Learn More
+## Scripts
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `npm run dev` - Start development server with Turbopack
+- `npm run build` - Build for production with Turbopack
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
